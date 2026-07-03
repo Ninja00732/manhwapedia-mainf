@@ -1,0 +1,101 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ManhwaPedia — dark wiki design system */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --font-display: "Spectral", ui-serif, Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Dark first — near-black cool background with amber wiki accent */
+  --background: oklch(0.16 0.015 265);
+  --foreground: oklch(0.94 0.01 260);
+  --surface: oklch(0.19 0.018 265);
+  --surface-2: oklch(0.23 0.02 265);
+  --ink: oklch(0.98 0.005 260);
+
+  --card: oklch(0.20 0.018 265);
+  --card-foreground: oklch(0.94 0.01 260);
+  --popover: oklch(0.20 0.018 265);
+  --popover-foreground: oklch(0.94 0.01 260);
+
+  /* Warm amber ink — evokes old paper wiki */
+  --primary: oklch(0.78 0.16 62);
+  --primary-foreground: oklch(0.18 0.02 60);
+
+  --secondary: oklch(0.28 0.02 265);
+  --secondary-foreground: oklch(0.94 0.01 260);
+  --muted: oklch(0.24 0.015 265);
+  --muted-foreground: oklch(0.68 0.015 260);
+  --accent: oklch(0.55 0.18 300);
+  --accent-foreground: oklch(0.98 0.005 260);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 260);
+  --border: oklch(0.30 0.015 265);
+  --input: oklch(0.28 0.015 265);
+  --ring: oklch(0.78 0.16 62);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--color-background); color: var(--color-foreground); }
+  body { font-family: var(--font-sans); font-feature-settings: "cv02","cv03","cv04","cv11"; }
+  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+/* Prose (markdown) styling */
+.prose-wiki {
+  color: var(--color-foreground);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+.prose-wiki h1 { font-size: 2rem; margin-top: 1.5rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4rem; }
+.prose-wiki h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3rem; }
+.prose-wiki h3 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.4rem; }
+.prose-wiki p { margin: 0.8rem 0; }
+.prose-wiki a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+.prose-wiki a:hover { color: var(--color-primary); opacity: 0.85; }
+.prose-wiki ul, .prose-wiki ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+.prose-wiki ul { list-style: disc; }
+.prose-wiki ol { list-style: decimal; }
+.prose-wiki li { margin: 0.25rem 0; }
+.prose-wiki blockquote { border-left: 3px solid var(--color-primary); padding: 0.5rem 1rem; color: var(--color-muted-foreground); margin: 1rem 0; background: var(--color-surface); }
+.prose-wiki code { background: var(--color-surface-2); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+.prose-wiki pre { background: var(--color-surface-2); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+.prose-wiki hr { border-color: var(--color-border); margin: 2rem 0; }
+.prose-wiki table { border-collapse: collapse; margin: 1rem 0; }
+.prose-wiki th, .prose-wiki td { border: 1px solid var(--color-border); padding: 0.5rem 0.8rem; }
+.prose-wiki th { background: var(--color-surface); }
