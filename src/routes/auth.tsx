@@ -90,7 +90,7 @@ function AuthPage() {
           {mode === "signup" && (
             <div>
               <label className="text-xs text-muted-foreground">Nome de usuário</label>
-              <input value={username} onChange={(e) => setUsername(e.target.value)} required minLength={3} maxLength={30} pattern="[a-zA-Z0-9_-]+" className="mt-1 w-full h-10 px-3 rounded-md bg-surface border border-border focus:border-primary focus:outline-none text-sm" />
+              <input value={username} onChange={(e) => setUsername(e.target.value)} required minLength={3} maxLength={30} pattern="[-a-zA-Z0-9_]+" className="mt-1 w-full h-10 px-3 rounded-md bg-surface border border-border focus:border-primary focus:outline-none text-sm" />
             </div>
           )}
           <div>
